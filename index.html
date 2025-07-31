@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Johnson - Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Dark Theme */
+            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+            --secondary-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+            --accent-gradient: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+            --hero-gradient: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --card-border: rgba(148, 163, 184, 0.1);
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --accent-color: #6366f1;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+        }
+
+        [data-theme="light"] {
+            /* Light Theme */
+            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+            --secondary-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+            --accent-gradient: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+            --hero-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --card-bg: rgba(255, 255, 255, 0.8);
+            --card-border: rgba(148, 163, 184, 0.2);
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --accent-color: #6366f1;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            z-index: 1000;
+            background: var(--card-bg);
+            border: 2px solid var(--card-border);
+            border-radius: 50px;
+            padding: 12px;
+            cursor: pointer;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .theme-toggle i {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        /* Light theme adjustments */
+        [data-theme="light"] .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="light"] .hero {
+            background: var(--hero-gradient);
+            color: var(--text-primary);
+        }
+
+        [data-theme="light"] .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        [data-theme="light"] .card:hover {
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+        }
+
+        [data-theme="light"] .particle {
+            background: rgba(99, 102, 241, 0.4);
+        }
+
+        [data-theme="light"] .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--card-border);
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(15, 23, 42, 0.95) !important;
+            backdrop-filter: blur(20px);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-secondary) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--accent-color) !important;
+            transform: translateY(-2px);
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: var(--primary-gradient);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 80%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--hero-gradient);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(99,102,241,0.1)" points="0,1000 1000,0 1000,1000"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: slideInDown 1s ease-out;
+        }
+
+        .hero .lead {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 5px solid rgba(99, 102, 241, 0.3);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+            animation: zoomIn 1s ease-out 0.6s both;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Animations */
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Sections */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+            height: 100%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+            border-color: var(--accent-color);
+        }
+
+        /* Skills Section */
+        .skill-item {
+            margin-bottom: 2rem;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: var(--card-border);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--accent-gradient);
+            border-radius: 10px;
+            transition: width 2s ease-in-out;
+            width: 0;
+        }
+
+        .skill-progress.animate {
+            animation: progressAnimation 2s ease-in-out;
+        }
+
+        @keyframes progressAnimation {
+            from { width: 0; }
+        }
+
+        /* Projects Section */
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--secondary-gradient);
+            opacity: 0;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 0.95;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.1);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-gradient);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 2rem 0;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 2rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 2rem;
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.895);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .timeline-date {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-gradient);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-date {
+            right: -80px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-date {
+            left: -80px;
+        }
+
+        /* Buttons */
+        .btn-gradient {
+            background: var(--primary-gradient);
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--card-border);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .social-links a {
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
+            .profile-img { width: 200px; height: 200px; }
+            .timeline::before { left: 30px; }
+            .timeline-item { width: 100%; left: 0 !important; padding-left: 60px !important; padding-right: 0 !important; }
+            .timeline-date { left: -20px !important; right: auto !important; }
+        }
+
+        /* Particle Background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(99, 102, 241, 0.4);
+            border-radius: 50%;
+            animation: float-particle 20s infinite linear;
+        }
+
+        @keyframes float-particle {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </div>
+
+    <!-- Particles Background -->
+    <div class="particles"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">Diksha Upadhyay</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#accomplishments">Awards</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#hackathons">Hackathons</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1>Hi, I'm Diksha</h1>
+                    <p class="lead"><b>Data Science & AI Enthusiast | Exploring the world of Web Development</b></p>
+                    <p class="mb-4">Enthusiastic about Data Science, AI, and Web Development. Focused on building intelligent, user-friendly applications using modern technologies like Django.</p>
+                    <a href="#about" class="btn-gradient me-3">Learn More</a>
+                    <a href="#projects" class="btn-gradient">View Work</a>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="mypic.jpeg" alt="Alex Johnson" class="profile-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">About Me</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card p-4 fade-in">
+                        <p class="lead text-center mb-4">Passionate about Data Science, Artificial Intelligence, and Web Development, with hands-on experience in building full-stack applications using Django. Focused on creating impactful solutions by blending backend logic with clean, responsive front-end design. Continuously exploring emerging technologies and committed to learning and growth.</p>
+                        <div class="row">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+    <div class="container">
+        <h2 class="section-title fade-in">Education</h2>
+        <div class="timeline fade-in">
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">2020 – 2021</div>
+                    <h4>Secondary School (Class 10)</h4>
+                    <h6 class="text-muted">
+                        <a href="https://www.apsranchi.com/" target="_blank" rel="noopener noreferrer">
+                            Army Public School
+                        </a>
+                    </h6>
+                    <p>Completed Secondary School with a score of 88%. Built a strong foundation in science and mathematics.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">2022 – 2023</div>
+                    <h4>Higher Secondary School (Class 12)</h4>
+                    <h6 class="text-muted">
+                        <a href="https://www.apsranchi.com/" target="_blank" rel="noopener noreferrer">
+                            Army Public School
+                        </a>
+                    </h6>
+                    <p>Scored 90.6% with a focus on Physics, Chemistry, and Mathematics.Developed strong analytical and problem-solving skills through academic projects and regular coursework in core science subjects. </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">2023 – Present</div>
+                    <h4>Bachelor of Technology in Computer Science</h4>
+                    <h6 class="text-muted">
+                        <a href="https://www.lpu.in/" target="_blank" rel="noopener noreferrer">
+                            Lovely Professional University
+                        </a>
+                    </h6>
+                    <p>Currently pursuing B.Tech in Computer Science with interests in Web Development, Data Science, and Artificial Intelligence. Engaged in hands-on projects, coding competitions, and online tech communities to enhance practical skills.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+    <!-- Skills Section -->
+<div class="container">
+  <div class="row">
+    <!-- Programming Languages -->
+    <div class="col-lg-6 mb-4">
+      <div class="card p-4 fade-in bg-light">
+        <h4 class="mb-3">💻 Programming Languages</h4>
+        <div class="mb-3">
+          <label>Python</label>
+          <div class="progress">
+            <div class="progress-bar bg-success" style="width: 90%">90%</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label>Java</label>
+          <div class="progress">
+            <div class="progress-bar bg-success" style="width: 80%">80%</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label>C</label>
+          <div class="progress">
+            <div class="progress-bar bg-success" style="width: 75%">75%</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label>C++</label>
+          <div class="progress">
+            <div class="progress-bar bg-success" style="width: 85%">85%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Web Development -->
+    <div class="col-lg-6 mb-4">
+      <div class="card p-4 fade-in bg-light">
+        <h4 class="mb-3">🌐 Web Development</h4>
+        <div class="mb-3">
+          <label>HTML</label>
+          <div class="progress">
+            <div class="progress-bar bg-primary" style="width: 95%">95%</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label>CSS</label>
+          <div class="progress">
+            <div class="progress-bar bg-primary" style="width: 90%">90%</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label>JavaScript</label>
+          <div class="progress">
+            <div class="progress-bar bg-primary" style="width: 85%">85%</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label>Django</label>
+          <div class="progress">
+            <div class="progress-bar bg-primary" style="width: 80%">80%</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label>Bootstrap</label>
+          <div class="progress">
+            <div class="progress-bar bg-primary" style="width: 85%">85%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Science & AI -->
+    <div class="col-lg-6 mb-4">
+      <div class="card p-4 fade-in bg-light">
+        <h4 class="mb-3">📊 Data Science & AI</h4>
+        <div class="mb-3">
+          <label>NumPy</label>
+          <div class="progress">
+            <div class="progress-bar bg-info" style="width: 85%">85%</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label>Pandas</label>
+          <div class="progress">
+            <div class="progress-bar bg-info" style="width: 90%">90%</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label>Matplotlib</label>
+          <div class="progress">
+            <div class="progress-bar bg-info" style="width: 80%">80%</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label>Scikit-learn</label>
+          <div class="progress">
+            <div class="progress-bar bg-info" style="width: 75%">75%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Database -->
+    <div class="col-lg-6 mb-4">
+      <div class="card p-4 fade-in bg-light">
+        <h4 class="mb-3">🗄️ Database</h4>
+        <ul>
+          <li>MySQL</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Tools & Platforms -->
+    <div class="col-lg-6 mb-4">
+      <div class="card p-4 fade-in bg-light">
+        <h4 class="mb-3">🛠️ Tools & Platforms</h4>
+        <ul>
+          <li>MS Excel</li>
+          <li>Google Sheets</li>
+          <li>Git</li>
+          <li>GitHub</li>
+          <li>VS Code</li>
+          <li>Anaconda</li>
+          <li>ChatGPT</li>
+          <li>Google Colab</li>
+          <li>Kaggle</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Soft Skills -->
+    <div class="col-lg-6 mb-4">
+      <div class="card p-4 fade-in bg-light">
+        <h4 class="mb-3">🤝 Soft Skills</h4>
+        <ul>
+          <li>Problem-solving</li>
+          <li>Time Management</li>
+          <li>Teamwork</li>
+          <li>Communication</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Projects</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                   <div class="card project-card fade-in">
+    <img src="Excel.png" alt="MGNREGA Dashboard - Manipur" class="project-image">
+    <div class="project-overlay">
+        <h4 class="text-white mb-3">MGNREGA Dashboard - Manipur</h4>
+        <p class="text-white text-center mb-3">District-wise performance analysis dashboard created in Microsoft Excel</p>
+        <div>
+            <a href="#" class="btn btn-light me-2">View Dashboard</a>
+            <a href="#" class="btn btn-outline-light">Download Excel</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">MGNREGA Excel Dashboard - Manipur</h5>
+        <p class="card-text">
+            Designed an interactive Excel dashboard to visualize district-wise performance of the MGNREGA scheme in Manipur.
+            Included data-driven insights using pivot tables, slicers, conditional formatting, and charts for easy interpretation.
+        </p>
+    </div>
+</div>
+
+               </div>
+<div class="col-lg-4 col-md-6 mb-4">
+    <div class="card project-card fade-in">
+        <img src="python.png" alt="Mental Health Trends" class="project-image">
+        <div class="project-overlay">
+            <h4 class="text-white mb-3">Mental Health Trends</h4>
+            <p class="text-white text-center mb-3">Exploratory data analysis on U.S. mental health using survey datasets in Jupyter Notebook</p>
+            <div>
+                <a href="http://localhost:8888/lab/tree/Diksha_project.ipynb" class="btn btn-light me-2">View Notebook</a>
+                <a href="https://github.com/dikshaupadhyay0203/Exploring-Mental-Health-Trends-in-U.S.-States-Using-Survey-Data.git" class="btn btn-outline-light">GitHub</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Exploring Mental Health Trends in U.S. States</h5>
+            <p class="card-text">Performed EDA on mental health survey data to uncover trends across U.S. states using Python and Jupyter Notebook. Used visualizations to interpret insights.</p>
+        </div>
+    </div>
+</div>
+
+              <div class="col-lg-4 col-md-6 mb-4">
+    <div class="card project-card fade-in">
+        <img src="dare.png" alt="Dare Exchange App" class="project-image">
+        <div class="project-overlay">
+            <h4 class="text-white mb-3">Dare Exchange</h4>
+            <p class="text-white text-center mb-3">A fun web app where users post and complete dares</p>
+            <div>
+                <a href="#" class="btn btn-light me-2">Live Demo</a>
+                <a href="https://github.com/dikshaupadhyay0203/DareExhange.git" class="btn btn-outline-light">GitHub</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Dare Exchange</h5>
+            <p class="card-text">An interactive platform that allows users to create, accept, and track fun dares. Built for encouraging engagement and social challenges.</p>
+        </div>
+    </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4">
+    <div class="card project-card fade-in">
+        <img src="kidora.png" alt="Kidora App" class="project-image">
+        <div class="project-overlay">
+            <h4 class="text-white mb-3">Kidora</h4>
+            <p class="text-white text-center mb-3">Educational platform for kids with topic-based video recommendations</p>
+            <div>
+                <a href="#" class="btn btn-light me-2">Live Demo</a>
+                <a href="#" class="btn btn-outline-light">GitHub</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Kidora</h5>
+            <p class="card-text">An engaging web app where students can type a topic and get curated educational videos. Built using Django and tailored for kid-friendly learning.</p>
+        </div>
+    </div>
+</div>
+
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Experience</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+    <div class="card p-4 fade-in">
+        <div class="d-flex align-items-center mb-3">
+            <i class="fas fa-briefcase text-primary fa-2x me-3"></i>
+            <div>
+                <h5 class="mb-1">Data Science Intern</h5>
+                <h6 class="text-muted mb-0">SkillCraft • 1-Month Internship</h6>
+            </div>
+        </div>
+        <p>Completed a one-month internship focused on data analysis, visualization, and machine learning. Worked with real-world datasets using Python, performed EDA, created visualizations, and applied basic machine learning models using Scikit-learn.</p>
+        <div class="mt-3">
+            <span class="badge bg-primary me-2">Python</span>
+            <span class="badge bg-primary me-2">Pandas</span>
+            <span class="badge bg-primary me-2">NumPy</span>
+            <span class="badge bg-primary me-2">Matplotlib</span>
+            <span class="badge bg-primary me-2">Seaborn</span>
+            <span class="badge bg-primary me-2">Scikit-learn</span>
+            <span class="badge bg-primary me-2">Data Analysis</span>
+        </div>
+    </div>
+</div>
+
+                <div class="col-lg-6 mb-4">
+    <div class="card p-4 fade-in">
+        <div class="d-flex align-items-center mb-3">
+            <i class="fas fa-hand-holding-water text-primary fa-2x me-3"></i>
+            <div>
+                <h5 class="mb-1">Volunteer - Soil & Water Conservation</h5>
+                <h6 class="text-muted mb-0">Nav Bharat Jagriti Kendra (NBJK) • 2-Month Volunteering</h6>
+            </div>
+        </div>
+        <p>Volunteered for two months on projects focused on environmental sustainability. Contributed to soil and water conservation efforts through on-field work, awareness initiatives, and support in implementing eco-friendly practices in rural communities.</p>
+        <div class="mt-3">
+            <span class="badge bg-success me-2">Soil Conservation</span>
+            <span class="badge bg-success me-2">Water Management</span>
+            <span class="badge bg-success me-2">Community Engagement</span>
+            <span class="badge bg-success me-2">Environmental Awareness</span>
+        </div>
+    </div>
+</div>
+
+    </section>
+
+    <!-- Accomplishments Section -->
+    <section id="accomplishments" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Accomplishments</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+    <div class="card p-4 text-center fade-in">
+        <i class="fas fa-award text-info fa-3x mb-3"></i>
+        <h5>Data Analyst 101 Certification</h5>
+        <p class="text-muted">Microsoft & Simplilearn</p>
+        <p>Proudly completed the Data Analyst 101 course, covering data wrangling, visualization, statistical analysis, Excel, SQL, and real-world BI applications.</p>
+        <a href="skillup.jpg" target="_blank" class="btn btn-outline-info mt-2">View Certificate</a>
+    </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4">
+    <div class="card p-4 text-center fade-in">
+        <i class="fas fa-industry text-secondary fa-3x mb-3"></i>
+        <h5>Operations Industrial Engineer Simulation</h5>
+        <p class="text-muted">Siemens Mobility • Forage</p>
+        <p>Completed the virtual job simulation focused on operations strategy, lean manufacturing, and process optimization as part of the Siemens Mobility program.</p>
+        
+        <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/YtWaumzWHmKiqP63y/pH8NRjPQN55KWunfb_YtWaumzWHmKiqP63y_ZoyvsCJqFYYonmMCB_1751121588532_completion_certificate.pdf" target="_blank" class="btn btn-outline-secondary mt-2">View Certificate</a>
+    </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4">
+    <div class="card p-4 text-center fade-in">
+        <i class="fas fa-laptop-code text-primary fa-3x mb-3"></i>
+        <h5>Programming Journey with Neo Colab</h5>
+        <p class="text-muted">Neo Colab</p>
+        <p>
+            Proud to have completed a structured 18-month programming journey with Neo Colab:<br>
+            C Programming, C++ & Data Structures and Algorithms, Java Programming<br>
+          
+        </p>
+        <a href="neocolab.pdf" target="_blank" class="btn btn-outline-primary mt-2">View Certificate</a>
+    </div>
+</div>
+
+<div class="col-lg-4 col-md-6 mb-4">
+    <div class="card p-4 text-center fade-in">
+        <i class="fas fa-code text-dark fa-3x mb-3"></i>
+        <h5>All-in-One Programming Course</h5>
+        <p class="text-muted">Udemy</p>
+        <p>Completed the “Master Java, Python, C & C++” course covering core programming concepts, syntax, and real-world applications across multiple languages.</p>
+        <a href="udemy.jpeg" target="_blank" class="btn btn-outline-dark mt-2">View Certificate</a>
+    </div>
+</div>
+
+               <div class="col-lg-4 col-md-6 mb-4">
+    <div class="card p-4 text-center fade-in">
+        <i class="fas fa-network-wired text-success fa-3x mb-3"></i>
+        <h5>Computer Networking Certification</h5>
+        <p class="text-muted">Coursera • Google</p>
+        <p>Completed the 'Bits and Bytes of Computer Networking' course, gaining a solid foundation in how networks function and how data is transmitted across them.</p>
+        <a href="google.jpg" target="_blank" class="btn btn-outline-success mt-2">View Certificate</a>
+    </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4">
+    <div class="card p-4 text-center fade-in">
+        <i class="fas fa-microchip text-danger fa-3x mb-3"></i>
+        <h5>Digital Systems Certification</h5>
+        <p class="text-muted">Coursera • UAB</p>
+        <p>Successfully completed the 'Digital Systems: From Logic Gates to Processors' course. Gained a solid understanding of how digital systems work—from fundamental logic gates to advanced processor architectures.</p>
+        <a href="uab.jpg" target="_blank" class="btn btn-outline-danger mt-2">View Certificate</a>
+    </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4">
+    <div class="card p-4 text-center fade-in">
+        <i class="fas fa-microchip text-primary fa-3x mb-3"></i>
+        <h5>Hardware & Operating Systems</h5>
+        <p class="text-muted">Coursera • IBM </p>
+        <p>Completed the “Introduction to Hardware and Operating Systems” course, strengthening my knowledge of hardware architecture and OS fundamentals.</p>
+        <a href="ibm.jpg" target="_blank" class="btn btn-outline-primary mt-2">View Certificate</a>
+    </div>
+    
+</div>
+
+<div class="col-lg-4 col-md-6 mb-4">
+    <div class="card p-4 text-center fade-in">
+        <i class="fas fa-network-wired text-primary fa-3x mb-3"></i>
+        <h5>Computer Communications</h5>
+        <p class="text-muted">Coursera • University of Colorado</p>
+        <p>Completed the “Computer Communications” specialization comprising four detailed courses: Fundamentals of Network Communication, Peer-to-Peer Protocols, Packet Switching Networks, and TCP/IP Protocols.</p>
+        <a href="all.pdf" target="_blank" class="btn btn-outline-primary mt-2">View Certificate</a>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Hackathons Section -->
+    <section id="hackathons" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Hackathons</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card p-4 fade-in">
+                        <div class="text-center mb-3">
+                            <i class="fas fa-rocket text-primary fa-3x"></i>
+                        </div>
+                        <h5 class="text-center">TechCrunch Disrupt 2023</h5>
+                        <p class="text-center text-muted mb-3">1st Place Winner</p>
+                        <p>Developed an AI-powered sustainability app that helps users track and reduce their carbon footprint. Won $50,000 in funding and mentorship opportunities.</p>
+                        <div class="text-center">
+                            <span class="badge bg-gold me-2">Winner</span>
+                            <span class="badge bg-primary me-2">AI</span>
+                            <span class="badge bg-success">Sustainability</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card p-4 fade-in">
+                        <div class="text-center mb-3">
+                            <i class="fas fa-code text-info fa-3x"></i>
+                        </div>
+                        <h5 class="text-center">HackMIT 2022</h5>
+                        <p class="text-center text-muted mb-3">2nd Place</p>
+                        <p>Built a real-time collaborative coding platform with integrated video chat and AI-powered code suggestions. Attracted over 1000 beta users in the first week.</p>
+                        <div class="text-center">
+                            <span class="badge bg-silver me-2">Runner-up</span>
+                            <span class="badge bg-info me-2">WebRTC</span>
+                            <span class="badge bg-warning">Collaboration</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card p-4 fade-in">
+                        <div class="text-center mb-3">
+                            <i class="fas fa-mobile-alt text-success fa-3x"></i>
+                        </div>
+                        <h5 class="text-center">Google I/O Hackathon 2022</h5>
+                        <p class="text-center text-muted mb-3">Best Mobile App</p>
+                        <p>Created a Flutter app for mental health support using Google's ML Kit for emotion detection and providing personalized wellness recommendations.</p>
+                        <div class="text-center">
+                            <span class="badge bg-primary me-2">Best App</span>
+                            <span class="badge bg-success me-2">Flutter</span>
+                            <span class="badge bg-info">Health Tech</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card p-4 fade-in">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-users text-warning fa-2x me-3"></i>
+                            <div>
+                                <h5 class="mb-1">Stanford TreeHacks 2021</h5>
+                                <h6 class="text-muted mb-0">Best Social Impact • Team Lead</h6>
+                            </div>
+                        </div>
+                        <p>Led a team of 4 developers to create a platform connecting volunteers with local food banks. Implemented real-time inventory tracking and automated volunteer scheduling.</p>
+                        <div class="mt-3">
+                            <span class="badge bg-warning me-2">Social Impact</span>
+                            <span class="badge bg-primary me-2">Leadership</span>
+                            <span class="badge bg-success">Community</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card p-4 fade-in">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-brain text-danger fa-2x me-3"></i>
+                            <div>
+                                <h5 class="mb-1">NASA Space Apps 2021</h5>
+                                <h6 class="text-muted mb-0">Global Finalist • Data Science</h6>
+                            </div>
+                        </div>
+                        <p>Developed a machine learning model to predict optimal crop planting schedules using NASA satellite data. Solution was implemented by 3 developing countries.</p>
+                        <div class="mt-3">
+                            <span class="badge bg-danger me-2">Global Finalist</span>
+                            <span class="badge bg-info me-2">Machine Learning</span>
+                            <span class="badge bg-success">Agriculture</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h4 class="mb-4">Let's Connect!</h4>
+                    <p class="lead mb-4">I'm always interested in new opportunities and collaborations. Feel free to reach out!</p>
+                    <div class="social-links mb-4">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="mailto:alex@example.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                    <a href="mailto:alex@example.com" class="btn-gradient">Get In Touch</a>
+                    <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+                    <p class="text-muted">&copy; 2024 Alex Johnson. Built with ❤️ and lots of coffee.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const body = document.body;
+
+        // Check for saved theme preference or default to 'dark'
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        body.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.className = 'fas fa-sun';
+            } else {
+                themeIcon.className = 'fas fa-moon';
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+                navbar.style.backdropFilter = 'blur(20px)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Skills animation
+        const skillsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-progress');
+                    skillBars.forEach(bar => {
+                        const width = bar.getAttribute('data-width');
+                        setTimeout(() => {
+                            bar.style.width = width + '%';
+                            bar.classList.add('animate');
+                        }, 300);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('#skills .card').forEach(card => {
+            skillsObserver.observe(card);
+        });
+
+        // Particles animation
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDuration = (Math.random() * 20 + 10) + 's';
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            document.querySelector('.particles').appendChild(particle);
+
+            // Remove particle after animation
+            setTimeout(() => {
+                particle.remove();
+            }, 25000);
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 3000);
+
+        // Initial particles
+        for (let i = 0; i < 10; i++) {
+            setTimeout(createParticle, i * 1000);
+        }
+
+        // Typing effect for hero text (optional enhancement)
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Enhanced scroll reveal with stagger effect
+        function staggerReveal(selector, delay = 200) {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    observer.observe(el);
+                }, index * delay);
+            });
+        }
+
+        // Initialize staggered reveals
+        window.addEventListener('load', () => {
+            staggerReveal('.card', 100);
+            staggerReveal('.timeline-item', 300);
+        });
+
+        // Add custom cursor effect (optional)
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.querySelector('.cursor');
+            if (!cursor) {
+                const newCursor = document.createElement('div');
+                newCursor.className = 'cursor';
+                newCursor.style.cssText = `
+                    position: fixed;
+                    width: 20px;
+                    height: 20px;
+                    background: radial-gradient(circle, rgba(102,126,234,0.8) 0%, transparent 70%);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 9999;
+                    mix-blend-mode: screen;
+                    transition: transform 0.1s ease;
+                `;
+                document.body.appendChild(newCursor);
+            }
+            
+            const cursorElement = document.querySelector('.cursor');
+            cursorElement.style.left = (e.clientX - 10) + 'px';
+            cursorElement.style.top = (e.clientY - 10) + 'px';
+        });
+
+        // Add hover effects to interactive elements
+        document.querySelectorAll('a, button, .card').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                const cursor = document.querySelector('.cursor');
+                if (cursor) {
+                    cursor.style.transform = 'scale(2)';
+                }
+            });
+            
+            el.addEventListener('mouseleave', () => {
+                const cursor = document.querySelector('.cursor');
+                if (cursor) {
+                    cursor.style.transform = 'scale(1)';
+                }
+            });
+        });
+    </script>
+
+    <style>
+        /* Additional styles for badges */
+        .badge.bg-gold {
+            background-color: #ffd700 !important;
+            color: #000 !important;
+        }
+        
+        .badge.bg-silver {
+            background-color: #c0c0c0 !important;
+            color: #000 !important;
+        }
+        
+        /* Enhanced card hover effects */
+        .card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .card:hover {
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* Improved timeline responsiveness */
+        @media (max-width: 768px) {
+            .timeline-item:nth-child(even) .timeline-date,
+            .timeline-item:nth-child(odd) .timeline-date {
+                position: relative !important;
+                left: auto !important;
+                right: auto !important;
+                top: auto !important;
+                transform: none !important;
+                display: inline-block;
+                margin-bottom: 1rem;
+            }
+        }
+        
+        /* Loading animation */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+        
+        .page-loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--card-border);
+            border-top: 3px solid var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <script>
+        // Hide loader when page is fully loaded
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('pageLoader');
+            setTimeout(() => {
+                loader.classList.add('hidden');
+                setTimeout(() => {
+                    loader.remove();
+                }, 500);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
