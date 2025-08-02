@@ -684,27 +684,28 @@
         .footer p {
             color: var(--text-muted) !important;
         }
+.social-links {
+    display: flex;
+    justify-content: left;
+    gap: 30px; /* spacing between icons */
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
 
-        .social-links a {
-            color: var(--text-muted);
-            font-size: 1.8rem;
-            margin: 0 1.2rem;
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
-            display: inline-block;
-            padding: 15px;
-            border-radius: 50%;
-            background: var(--card-bg);
-            border: 2px solid var(--card-border);
-            backdrop-filter: blur(10px);
-        }
+.social-links a {
+    background-color: #1f1f1f;
+    padding: 15px;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
 
-        .social-links a:hover {
-            color: white;
-            background: var(--primary-gradient);
-            transform: translateY(-8px) scale(1.1) rotate(5deg);
-            border-color: transparent;
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
-        }
+.social-links a:hover {
+    background-color: #6c5ce7;
+    transform: scale(1.1);
+}
+
 
         /* Enhanced Scroll Animations */
         .fade-in {
@@ -931,6 +932,116 @@
             color: var(--accent-color) !important;
             font-weight: 600;
         }
+
+         #contact {
+            background: var(--bg-secondary);
+            position: relative;
+        }
+
+        .contact-form {
+            background: var(--card-gradient);
+            border: 2px solid var(--card-border);
+            border-radius: 25px;
+            padding: 3rem;
+            backdrop-filter: blur(25px);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .contact-form:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 30px 80px rgba(102, 126, 234, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--card-border);
+            border-radius: 15px;
+            padding: 15px 20px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-control:focus {
+            background: rgba(102, 126, 234, 0.1);
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+            color: var(--text-primary);
+        }
+
+        .form-control::placeholder {
+            color: var(--text-muted);
+            opacity: 0.8;
+        }
+
+        .form-label {
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-info-card {
+            background: var(--card-gradient);
+            border: 2px solid var(--card-border);
+            border-radius: 25px;
+            padding: 2.5rem;
+            backdrop-filter: blur(25px);
+            box-shadow: 
+                0 15px 50px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .contact-info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 25px 70px rgba(102, 126, 234, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .contact-method:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateX(10px);
+        }
+
+        .contact-method i {
+            font-size: 1.5rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-right: 1rem;
+        }
+
+        .contact-method div h6 {
+            color: var(--text-primary) !important;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .contact-method div p {
+            color: var(--text-secondary) !important;
+            margin: 0;
+            font-size: 0.95rem;
+        }
     </style>
 </head>
 <body>
@@ -984,7 +1095,12 @@
                 <div class="col-lg-6 text-center">
                     <img src="mypic.jpeg" alt="Alex Johnson" class="profile-img">
                 </div>
-                
+                 <div class="social-links mb-4">
+                        <a href="https://github.com/dikshaupadhyay0203"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/dikshaupadhyay020300/"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://instagram.com/dikshaupadhyay___"><i class="fab fa-instagram"></i></a>
+                        <a href="dikshaupadhyay0203@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
             </div>
         </div>
     </section>
@@ -1337,8 +1453,57 @@
 </div>
 
     </section>
-    
+    <!-- Experience -->
+      <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Experience</h2>
+            <div class="row">
+             <div class="col-lg-6 mb-4">
+    <div class="card p-4 fade-in">
+        <div class="d-flex align-items-center mb-3">
+            <i class="fas fa-briefcase text-primary fa-2x me-3"></i>
+            <div>
+                <h5 class="mb-1">Data Science Intern</h5>
+                <h6 class="text-muted mb-0">SkillCraft • 1-Month Internship</h6>
+            </div>
+        </div>
+        <p>Completed a one-month internship focused on data analysis, visualization, and machine learning. Worked with real-world datasets using Python, performed EDA, created visualizations, and applied basic machine learning models using Scikit-learn.</p>
+        <div class="mt-3">
+            <span class="badge bg-primary me-2">Python</span>
+            <span class="badge bg-primary me-2">Pandas</span>
+            <span class="badge bg-primary me-2">NumPy</span>
+            <span class="badge bg-primary me-2">Matplotlib</span>
+            <span class="badge bg-primary me-2">Seaborn</span>
+            <span class="badge bg-primary me-2">Scikit-learn</span>
+            <span class="badge bg-primary me-2">Data Analysis</span>
+        </div>
+    </div>
+</div>
 
+               <div class="col-lg-6 mb-4">
+    <div class="card p-4 fade-in">
+        <div class="d-flex align-items-center mb-3">
+            <i class="fas fa-hand-holding-water text-primary fa-2x me-3"></i>
+            <div>
+                <h5 class="mb-1">Volunteer - Soil & Water Conservation</h5>
+                <h6 class="text-muted mb-0">Nav Bharat Jagriti Kendra (NBJK) • 2-Month Volunteering</h6>
+            </div>
+        </div>
+        <p>Volunteered for two months on projects focused on environmental sustainability. Contributed to soil and water conservation efforts through on-field work, awareness initiatives, and support in implementing eco-friendly practices in rural communities.</p>
+        <div class="mt-3">
+            <span class="badge bg-success me-2">Soil Conservation</span>
+            <span class="badge bg-success me-2">Water Management</span>
+            <span class="badge bg-success me-2">Community Engagement</span>
+            <span class="badge bg-success me-2">Environmental Awareness</span>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </section>
+
+<!-- Certificates -->
     <section id="accomplishments" class="section">
         <div class="container">
             <h2 class="section-title fade-in">Certificates</h2>
@@ -1458,6 +1623,93 @@
             </div>
         </div>
     </section>
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Get In Touch</h2>
+            <div class="row">
+              <div class="col-lg-8 mb-5">
+    <div class="contact-form fade-in">
+        <h4 class="mb-4">Send Me a Message</h4>
+        <form id="contactForm" action="https://formspree.io/f/xovlnjlb" method="POST">
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" name="firstName" class="form-control" id="firstName" placeholder="Your first name" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Your last name" required>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" name="email" class="form-control" id="email" placeholder="your.email@example.com" required>
+            </div>
+            <div class="mb-3">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" name="subject" class="form-control" id="subject" placeholder="What's this about?" required>
+            </div>
+            <div class="mb-4">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" name="message" id="message" rows="6" placeholder="Tell me about your project, idea, or just say hello!" required></textarea>
+            </div>
+            <button type="submit" class="btn-gradient">
+                <i class="fas fa-paper-plane me-2"></i>Send Message
+            </button>
+        </form>
+    </div>
+</div>
+
+                <div class="col-lg-4">
+                    <div class="contact-info-card fade-in">
+                        <h4 class="mb-4">Let's Connect!</h4>
+                        <p class="mb-4">I'm always excited to discuss new opportunities, collaborate on interesting projects, or just have a friendly conversation about technology and innovation.</p>
+                        
+                        <a href="mailto:dikshaupadhyay0203@gmail.com" class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h6>Email</h6>
+                                <p>dikshaupadhyay0203@gmail.com</p>
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.linkedin.com/in/dikshaupadhyay020300/" target="_blank" class="contact-method">
+                            <i class="fab fa-linkedin"></i>
+                            <div>
+                                <h6>LinkedIn</h6>
+                                <p>Connect with me professionally</p>
+                            </div>
+                        </a>
+                        
+                        <a href="https://github.com/dikshaupadhyay0203" target="_blank" class="contact-method">
+                            <i class="fab fa-github"></i>
+                            <div>
+                                <h6>GitHub</h6>
+                                <p>Check out my code repositories</p>
+                            </div>
+                        </a>
+                        
+                        <a href="https://instagram.com/dikshaupadhyay___" target="_blank" class="contact-method">
+                            <i class="fab fa-instagram"></i>
+                            <div>
+                                <h6>Instagram</h6>
+                                <p>Follow my journey</p>
+                            </div>
+                        </a>
+                        
+                        <div class="mt-4 text-center">
+                            <p class="text-muted">
+                                <i class="fas fa-clock me-2"></i>
+                                Usually responds within 24 hours
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -1466,12 +1718,7 @@
                 <div class="col-lg-8 mx-auto text-center">
                     <h4 class="mb-4">Let's Connect!</h4>
                     <p class="lead mb-4">I'm always interested in new opportunities and collaborations. Feel free to reach out!</p>
-                    <div class="social-links mb-4">
-                        <a href="https://github.com/dikshaupadhyay0203"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/dikshaupadhyay020300/"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://instagram.com/dikshaupadhyay___"><i class="fab fa-instagram"></i></a>
-                        <a href="dikshaupadhyay0203@gmail.com"><i class="fas fa-envelope"></i></a>
-                    </div>
+                    
                     <a href="dikshaupadhyay0203@gmail.com" class="btn-gradient">Get In Touch</a>
                     <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
                     <p class="text-muted">&copy; 2025 Diksha Upadhyay. Built with ❤️ and lots of coffee.</p>
@@ -1743,3 +1990,13 @@
     </script>
 </body>
 </html> 
+
+
+
+
+
+
+
+
+
+
