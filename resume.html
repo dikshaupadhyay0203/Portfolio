@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diksha Kumari - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            line-height: 1.4;
+            color: #333;
+            background: white;
+            font-size: 11px;
+        }
+        
+        .container {
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.4in;
+            background: white;
+            min-height: 11in;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            border-radius: 8px;
+        }
+        
+        .photo-section {
+            margin-right: 20px;
+            
+        }
+        
+        .photo-placeholder {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #1e3c72;
+            font-weight: bold;
+            border: 3px solid white;
+            
+        }
+        
+        .header-info {
+            flex: 1;
+        }
+        
+        .name {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            font-size: 11px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .contact-icon {
+            width: 16px;
+            text-align: center;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1.8fr;
+            gap: 25px;
+        }
+        
+        .left-column {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #1e3c72;
+        }
+        
+        .right-column {
+            padding: 10px 0;
+        }
+        
+        .section {
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #1e3c72;
+            margin-bottom: 12px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #1e3c72;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .left-section-title {
+            color: #1e3c72;
+            font-size: 13px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .objective {
+            text-align: justify;
+            color: #444;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        
+        .education-item {
+            margin-bottom: 15px;
+            padding: 12px;
+            background: white;
+            border-radius: 5px;
+            border-left: 3px solid #1e3c72;
+        }
+        
+        .degree {
+            font-weight: bold;
+            color: #1e3c72;
+            font-size: 12px;
+        }
+        
+        .institution {
+            color: #666;
+            font-size: 11px;
+            margin: 2px 0;
+        }
+        
+        .year-score {
+            color: #888;
+            font-size: 10px;
+        }
+        
+        .skills-category {
+            margin-bottom: 15px;
+        }
+        
+        .skill-title {
+            font-weight: bold;
+            color: #1e3c72;
+            margin-bottom: 5px;
+            font-size: 11px;
+        }
+        
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .skill-tag {
+            background: #e3f2fd;
+            color: #1e3c72;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 9px;
+            font-weight: 500;
+        }
+        
+        .experience-item, .project-item {
+            margin-bottom: 18px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .experience-item:last-child, .project-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .item-title {
+            font-weight: bold;
+            color: #1e3c72;
+            font-size: 12px;
+            margin-bottom: 3px;
+        }
+        
+        .item-subtitle {
+            color: #666;
+            font-size: 10px;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+        
+        .item-description {
+            color: #555;
+            font-size: 10px;
+            line-height: 1.4;
+        }
+        
+        .cert-item {
+            margin-bottom: 8px;
+            font-size: 10px;
+        }
+        
+        .cert-title {
+            font-weight: 600;
+            color: #1e3c72;
+        }
+        
+        .cert-org {
+            color: #666;
+            font-size: 9px;
+        }
+        
+        .contact-link {
+            color: white;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        
+        @media print {
+            body { font-size: 10px; }
+            .container { padding: 0.3in; }
+            .header { background: #1e3c72 !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="photo-section">
+    <div class="photo-placeholder">
+        <img src="mypic.jpeg" alt="Diksha's Photo" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%;">
+    </div>
+</div>
+
+            <div class="header-info">
+                <div class="name">DIKSHA KUMARI</div>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <a href="mailto:dikshaupadhyay0203@gmail.com" class="contact-link">dikshaupadhyay0203@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📱</span>
+                        <span>+91 7004975733</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">💼</span>
+                        <a href="https://www.linkedin.com/in/dikshaupadhyay020300/" class="contact-link">www.linkedin.com/in/dikshaupadhyay020300/</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">🔗</span>
+                        <a href="https://github.com/dikshaupadhyay0203" class="contact-link">github.com/dikshaupadhyay0203</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">🌐</span>
+                        <a href="https://dikshaupadhyay0203.github.io/Portfolio/" class="contact-link">dikshaupadhyay0203.github.io/Portfolio/</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Left Column -->
+            <div class="left-column">
+                <!-- Education -->
+                <div class="section">
+                    <div class="left-section-title">Education</div>
+                    <div class="education-item">
+                        <div class="degree">B.Tech Computer Science</div>
+                        <div class="institution">Lovely Professional University</div>
+                        <div class="year-score">2023 - 2027</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="degree">Senior Secondary (12th)</div>
+                        <div class="institution">Army Public School, Ranchi</div>
+                        <div class="year-score">90.6%</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="degree">Secondary (10th)</div>
+                        <div class="institution">Army Public School, Ranchi</div>
+                        <div class="year-score">88.2%</div>
+                    </div>
+                </div>
+
+                <!-- Technical Skills -->
+                <div class="section">
+                    <div class="left-section-title">Technical Skills</div>
+                    <div class="skills-category">
+                        <div class="skill-title">Programming Languages</div>
+                        <div class="skill-items">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">C</span>
+                        </div>
+                    </div>
+                    <div class="skills-category">
+                        <div class="skill-title">Web Development</div>
+                        <div class="skill-items">
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Django</span>
+                            <span class="skill-tag">Bootstrap</span>
+                        </div>
+                    </div>
+                    <div class="skills-category">
+                        <div class="skill-title">Data Science & ML</div>
+                        <div class="skill-items">
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">Data Analysis</span>
+                            <span class="skill-tag">Visualization</span>
+                        </div>
+                    </div>
+                    <div class="skills-category">
+                        <div class="skill-title">Tools & Database</div>
+                        <div class="skill-items">
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Excel</span>
+                            <span class="skill-tag">Jupyter</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Certifications -->
+                <div class="section">
+                    <div class="left-section-title">Key Certifications</div>
+                    <div class="cert-item">
+                        <div class="cert-title">Data Analyst 101</div>
+                        <div class="cert-org">Microsoft & Simplilearn</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-title">Programming Journey (18-month)</div>
+                        <div class="cert-org">Neo Colab</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-title">Computer Networking</div>
+                        <div class="cert-org">Google (Coursera)</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-title">Digital Systems</div>
+                        <div class="cert-org">UAB (Coursera)</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-title">Industrial Engineering</div>
+                        <div class="cert-org">Siemens Mobility</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-column">
+                <!-- Career Objective -->
+                <div class="section">
+                    <div class="section-title">Career Objective</div>
+                    <div class="objective">
+                        Passionate Computer Science student with expertise in data science, machine learning, and full-stack web development. Seeking opportunities to leverage my skills in Python, ML algorithms, and Django to create innovative data-driven solutions. Enthusiastic about combining machine learning insights with robust web applications, while continuously expanding knowledge in Java, DSA, and emerging technologies.
+                    </div>
+                </div>
+
+                <!-- Professional Experience -->
+                <div class="section">
+                    <div class="section-title">Professional Experience</div>
+                    <div class="experience-item">
+                        <div class="item-title">Data Science Intern</div>
+                        <div class="item-subtitle">Skillcraft Technology • 1 Month</div>
+                        <div class="item-description">
+                            • Conducted comprehensive data analysis and visualization on real-world datasets using Python<br>
+                            • Performed Exploratory Data Analysis (EDA) to uncover meaningful insights and patterns<br>
+                            • Applied machine learning models using Scikit-learn for predictive analysis<br>
+                            • Created interactive visualizations to communicate findings effectively
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects -->
+                <div class="section">
+                    <div class="section-title">Key Projects</div>
+                    <div class="project-item">
+                        <div class="item-title">MGNREGA Excel Dashboard - Manipur</div>
+                        <div class="item-subtitle">Data Visualization Project</div>
+                        <div class="item-description">
+                            Designed an interactive Excel dashboard to visualize district-wise performance of the MGNREGA scheme in Manipur. Utilized pivot tables, slicers, conditional formatting, and charts to provide data-driven insights for easy interpretation and decision-making.
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <div class="item-title">Mental Health Trends Analysis</div>
+                        <div class="item-subtitle">Data Science Project</div>
+                        <div class="item-description">
+                            Performed comprehensive EDA on mental health survey data across U.S. states using Python and Jupyter Notebook. Created insightful visualizations to identify trends and patterns in mental health statistics.
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <div class="item-title">Dare Exchange App</div>
+                        <div class="item-subtitle">Full-Stack Web Application</div>
+                        <div class="item-description">
+                            Developed an interactive platform enabling users to create, accept, and track social challenges. Built with modern web technologies to encourage user engagement and community interaction.
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <div class="item-title">Kidora Educational Platform</div>
+                        <div class="item-subtitle">Django Web Application</div>
+                        <div class="item-description">
+                            Created an engaging educational web app where students input learning topics and receive curated video content. Designed with kid-friendly interface and built using Django framework.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
