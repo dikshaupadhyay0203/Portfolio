@@ -1042,6 +1042,39 @@
             margin: 0;
             font-size: 0.95rem;
         }
+        /* ...existing code... */
+
+/* Prevent fixed navbar overlap */
+:root {
+    --navbar-height: 96px;
+}
+
+body {
+    padding-top: var(--navbar-height);
+}
+
+.hero {
+    min-height: calc(100vh - var(--navbar-height));
+    display: flex;
+    align-items: center;
+    background: var(--hero-gradient);
+    position: relative;
+    overflow: hidden;
+    padding-top: 20px;
+}
+/* ...existing code... */
+
+/* Fix About -> Beyond Tech list text visibility */
+#about .card ul li {
+    color: var(--text-secondary) !important;
+}
+
+#about .card ul li::marker {
+    color: var(--accent-color);
+}
+
+/* ...existing code... */
+/* ...existing code... */
     </style>
 </head>
 <body>
@@ -1066,16 +1099,17 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#accomplishments">Certificates</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contacts</a></li>
-                </ul>
+               <ul class="navbar-nav ms-auto">
+    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+    <li class="nav-item"><a class="nav-link" href="#social-skills">Social Skills</a></li>
+    <li class="nav-item"><a class="nav-link" href="#accomplishments">Certificates</a></li>
+    <li class="nav-item"><a class="nav-link" href="#contact">Contacts</a></li>
+</ul>
             </div>
         </div>
     </nav>
@@ -1086,8 +1120,10 @@
         <div class="row align-items-center">
             <div class="col-lg-6 hero-content">
                 <h1>Hi, I'm Diksha</h1>
-                <p class="lead"><b>Aspiring Data Scientist | Django & Web Developer | ML Enthusiast</b></p>
-                <p class="mb-4">Enthusiastic about Data Science, AI, and Web Development. Focused on building intelligent, user-friendly applications using modern technologies like Django.</p>
+                <p class="lead"><b>Aspiring Software Engineer | MERN & Django Developer | Data Science & ML Enthusiast</b></p>
+<p class="mb-4">
+Passionate about building scalable web applications and intelligent systems using modern technologies. Skilled in the MERN stack and Django, with experience in Data Science and Machine Learning. Focused on developing efficient, user-friendly, and data-driven solutions.
+</p>
                 <a href="#about" class="btn-gradient me-3">Learn More</a>
                 <a href="#projects" class="btn-gradient">View Work</a>
 
@@ -1109,27 +1145,42 @@
 
 
     <!-- About Section -->
-  <section id="about" class="section">
+ <!-- ...existing code... -->
+<section id="about" class="section">
     <div class="container">
         <h2 class="section-title fade-in">About Me</h2>
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="card p-4 fade-in">
+        <div class="row g-4">
+            <!-- Main technical intro -->
+            <div class="col-lg-8">
+                <div class="card p-4 fade-in h-100">
                     <p class="lead text-center mb-4">
-                        Passionate about Data Science, Artificial Intelligence, and Web Development, with hands-on experience in building full-stack applications using Django. Focused on creating impactful solutions by blending backend logic with clean, responsive front-end design. Continuously exploring emerging technologies and committed to learning and growth.
+                        Curious and driven individual with a growing expertise in Data Science, AI, and Full Stack Development.
+                        Hands-on experience with MERN stack and Django to build efficient and user-friendly applications.
+                        Dedicated to continuous improvement and applying technical skills to create meaningful solutions.
                     </p>
-
-                    <!-- Resume Button -->
                     <div class="text-center">
-                        <a href="resumee.html" target="_blank" class="btn btn-primary">Show Resume</a>
+                        <a href="DikshaMain.docx" target="_blank" class="btn btn-primary">Show Resume</a>
                     </div>
-
                 </div>
             </div>
+
+            <!-- Side non-technical card -->
+           <div class="col-lg-4">
+    <div class="card p-4 fade-in h-100">
+        <h5 class="mb-3">🌟 Beyond Tech</h5>
+        <p class="mb-3">When I step away from coding, you’ll find me:</p>
+        <ul class="mb-3">
+            <li>Traveling and exploring new places</li>
+            <li>Listening to music and relaxing</li>
+            <li>Watching movies and web series</li>
+            <li>Enjoying new experiences and adventures</li>
+        </ul>
+    </div>
+</div>
         </div>
     </div>
 </section>
-
+<!-- ...existing code... -->
 
     <!-- Education Section -->
     <section id="education" class="section">
@@ -1181,206 +1232,111 @@
 </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">Skills</h2>
-            <div class="row fade-in">
-                <!-- Programming Languages -->
-                <div class="col-lg-6 mb-4">
-                    <div class="card p-4 fade-in">
-                        <h4 class="mb-3">💻 Programming Languages</h4>
-                        <div class="mb-3">
-                            <div class="progress-label">
-                                <span>Python</span>
-                                <span class="progress-percentage">90%</span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-success" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <div class="progress-label">
-                                <span>Java</span>
-                                <span class="progress-percentage">80%</span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-success" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <div class="progress-label">
-                                <span>C</span>
-                                <span class="progress-percentage">75%</span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-success" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <div class="progress-label">
-                                <span>C++</span>
-                                <span class="progress-percentage">85%</span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-success" style="width: 85%"></div>
-                            </div>
-                        </div>
-                    </div>
+<!-- ...existing code... -->
+<section id="skills" class="section">
+    <div class="container">
+        <h2 class="section-title fade-in">Skills</h2>
+        <div class="row fade-in">
+            <!-- Programming Languages -->
+            <div class="col-lg-6 mb-4">
+                <div class="card p-4 fade-in">
+                    <h4 class="mb-3">💻 Programming Languages</h4>
+                    <ul>
+                        <li>Python</li>
+                        <li>Java</li>
+                        <li>C</li>
+                        <li>C++</li>
+                    </ul>
                 </div>
+            </div>
 
-                <!-- Web Development -->
-                <div class="col-lg-6 mb-4">
-                    <div class="card p-4 fade-in">
-                        <h4 class="mb-3">🌐 Web Development</h4>
-                        <div class="mb-3">
-                            <div class="progress-label">
-                                <span>HTML</span>
-                                <span class="progress-percentage">95%</span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-primary" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <div class="progress-label">
-                                <span>CSS</span>
-                                <span class="progress-percentage">90%</span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-primary" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <div class="progress-label">
-                                <span>JavaScript</span>
-                                <span class="progress-percentage">80%</span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-primary" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <div class="progress-label">
-                                <span>Django</span>
-                                <span class="progress-percentage">85%</span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-primary" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <div class="progress-label">
-                                <span>Bootstrap</span>
-                                <span class="progress-percentage">85%</span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-primary" style="width: 85%"></div>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Web Development -->
+            <div class="col-lg-6 mb-4">
+                <div class="card p-4 fade-in">
+                    <h4 class="mb-3">🌐 Web Development</h4>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>Django</li>
+                        <li>Bootstrap</li>
+                        <li>React</li>
+                        <li>Node.js</li>
+                        <li>Express.js</li>
+                    </ul>
                 </div>
+            </div>
 
-                <!-- Data Science & AI -->
-                <div class="col-lg-6 mb-4">
-                    <div class="card p-4 fade-in">
-                        <h4 class="mb-3">📊 Data Science & AI</h4>
-                        <div class="mb-3">
-                            <div class="progress-label">
-                                <span>NumPy</span>
-                                <span class="progress-percentage">97%</span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-info" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <div class="progress-label">
-                                <span>Pandas</span>
-                                <span class="progress-percentage">98%</span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-info" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <div class="progress-label">
-                                <span>Matplotlib</span>
-                                <span class="progress-percentage">95%</span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-info" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <div class="progress-label">
-                                <span>Scikit-learn</span>
-                                <span class="progress-percentage">85%</span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-info" style="width: 75%"></div>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Data Science & AI -->
+           <div class="col-lg-6 mb-4">
+    <div class="card p-4 fade-in">
+        <h4 class="mb-3">📊 Data Science & AI</h4>
+        <ul>
+            <li>NumPy</li>
+            <li>Pandas</li>
+            <li>Matplotlib</li>
+            <li>Seaborn</li>
+            <li>Scikit-learn</li>
+            <li>Supervised Learning (Regression & Classification)</li>
+            <li>Unsupervised Learning (Clustering)</li>
+        </ul>
+    </div>
+</div>
+
+            <!-- Database -->
+            <div class="col-lg-6 mb-4">
+                <div class="card p-4 fade-in">
+                    <h4 class="mb-3">🗄️ Database</h4>
+                    <ul>
+                        <li>MySQL</li>
+                        <li>MongoDB</li>
+                        <li>SQLite</li>
+                    </ul>
                 </div>
+            </div>
 
-                <!-- Database -->
-                <div class="col-lg-6 mb-4">
-                    <div class="card p-4 fade-in">
-                        <h4 class="mb-3">🗄️ Database</h4>
-                        <div class="mb-3">
-                            <div class="progress-label">
-                                <span>MySQL</span>
-                                <span class="progress-percentage">85%</span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-info" style="width: 75%"></div>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Tools & Platforms -->
+            <div class="col-lg-6 mb-4">
+                <div class="card p-4 fade-in">
+                    <h4 class="mb-3">🛠️ Tools & Platforms</h4>
+                    <ul>
+                        <li>MS Excel</li>
+                        <li>Google Sheets</li>
+                        <li>Git</li>
+                        <li>GitHub</li>
+                        <li>VS Code</li>
+                     
+                        <li>ChatGPT</li>
+                        
+                        <li>Kaggle</li>
+                        <li>Jupyter Notebook</li>
+                        <li>Postman</li>
+                        
+                    </ul>
                 </div>
+            </div>
 
-                <!-- Tools & Platforms -->
-                <div class="col-lg-6 mb-4">
-                    <div class="card p-4 fade-in">
-                        <h4 class="mb-3">🛠️ Tools & Platforms</h4>
-                        <ul>
-                            <li>MS Excel</li>
-                            <li>Google Sheets</li>
-                            <li>Git</li>
-                            <li>GitHub</li>
-                            <li>VS Code</li>
-                            <li>Anaconda</li>
-                            <li>ChatGPT</li>
-                            <li>Google Colab</li>
-                            <li>Kaggle</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Soft Skills -->
-                <div class="col-lg-6 mb-4">
-                    <div class="card p-4 fade-in">
-                        <h4 class="mb-3">🤝 Soft Skills</h4>
-                        <ul>
-                         <ul>
-    <li>Problem-solving</li>
-    <li>Time Management</li>
-    <li>Teamwork</li>
-    <li>Communication</li>
-    <li>Adaptability</li>
-    <li>Leadership</li>
-    <li>Creativity</li>
-    <li>Work Ethic</li>
-    <li>Emotional Intelligence</li>
-</ul>
-
-                        </ul>
-                    </div>
+            <!-- Soft Skills -->
+            <div class="col-lg-6 mb-4">
+                <div class="card p-4 fade-in">
+                    <h4 class="mb-3">🤝 Soft Skills</h4>
+                    <ul>
+                        <li>Problem-solving</li>
+                        <li>Time Management</li>
+                        <li>Teamwork</li>
+                        <li>Communication</li>
+                        <li>Adaptability</li>
+                        <li>Leadership</li>
+                        <li>Creativity</li>
+                        <li>Work Ethic</li>
+                        <li>Emotional Intelligence</li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
+<!-- ...existing code... -->
     <!-- Projects Section -->
     
  <section id="projects" class="section">
@@ -1388,7 +1344,61 @@
             <h2 class="section-title fade-in">Projects</h2>
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
-                   <div class="card project-card fade-in">
+    <div class="card project-card fade-in">
+        <img src="CodeBazar.png" alt="CodeBazar App" class="project-image">
+        <div class="project-overlay">
+            <h4 class="text-white mb-3">CodeBazar</h4>
+            <p class="text-white text-center mb-3">Marketplace for buying and selling coding projects</p>
+            <div>
+                <a href="https://codebazar-frontend.vercel.app/" class="btn btn-light me-2">Live Demo</a>
+                <a href="https://github.com/dikshaupadhyay0203/codebazar-frontend.git" class="btn btn-outline-light" target="_blank">GitHub</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">CodeBazar</h5>
+            <p class="card-text">
+                A full-stack MERN application that allows users to buy and sell coding projects. Features include user authentication, project listing, and a responsive UI for seamless user experience.
+            </p>
+        </div>
+    </div>
+</div>
+
+              <div class="col-lg-4 col-md-6 mb-4">
+    <div class="card project-card fade-in">
+        <img src="daree.png" alt="Dare Exchange App" class="project-image">
+        <div class="project-overlay">
+            <h4 class="text-white mb-3">Dare Exchange</h4>
+            <p class="text-white text-center mb-3">A fun web app where users post and complete dares</p>
+            <div>
+                <a href="#" class="btn btn-light me-2">Live Demo</a>
+                <a href="https://github.com/dikshaupadhyay0203/DareExhange.git" class="btn btn-outline-light">GitHub</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Dare Exchange</h5>
+            <p class="card-text">An interactive platform that allows users to create, accept, and track fun dares. Built for encouraging engagement and social challenges.</p>
+        </div>
+    </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4">
+    <div class="card project-card fade-in">
+        <img src="kidoraa.png" alt="Kidora App" class="project-image">
+        <div class="project-overlay">
+            <h4 class="text-white mb-3">Kidora</h4>
+            <p class="text-white text-center mb-3">Educational platform for kids with topic-based video recommendations</p>
+            <div>
+                <a href="https://kidora.pythonanywhere.com/" class="btn btn-light me-2">Live Demo</a>
+                <a href="https://github.com/dikshaupadhyay0203/kidora.git" class="btn btn-outline-light">GitHub</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Kidora</h5>
+            <p class="card-text">An engaging web app where students can type a topic and get curated educational videos. Built using Django and tailored for kid-friendly learning.</p>
+        </div>
+    </div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4">
+    <div class="card project-card fade-in">
     <img src="Excell.png" alt="MGNREGA Dashboard - Manipur" class="project-image">
     <div class="project-overlay">
         <h4 class="text-white mb-3">MGNREGA Dashboard - Manipur</h4>
@@ -1432,91 +1442,65 @@
 </div>
 
 
-              <div class="col-lg-4 col-md-6 mb-4">
-    <div class="card project-card fade-in">
-        <img src="daree.png" alt="Dare Exchange App" class="project-image">
-        <div class="project-overlay">
-            <h4 class="text-white mb-3">Dare Exchange</h4>
-            <p class="text-white text-center mb-3">A fun web app where users post and complete dares</p>
-            <div>
-                <a href="#" class="btn btn-light me-2">Live Demo</a>
-                <a href="https://github.com/dikshaupadhyay0203/DareExhange.git" class="btn btn-outline-light">GitHub</a>
-            </div>
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Dare Exchange</h5>
-            <p class="card-text">An interactive platform that allows users to create, accept, and track fun dares. Built for encouraging engagement and social challenges.</p>
-        </div>
-    </div>
-</div>
-<div class="col-lg-4 col-md-6 mb-4">
-    <div class="card project-card fade-in">
-        <img src="kidoraa.png" alt="Kidora App" class="project-image">
-        <div class="project-overlay">
-            <h4 class="text-white mb-3">Kidora</h4>
-            <p class="text-white text-center mb-3">Educational platform for kids with topic-based video recommendations</p>
-            <div>
-                <a href="https://kidora.pythonanywhere.com/" class="btn btn-light me-2">Live Demo</a>
-                <a href="https://github.com/dikshaupadhyay0203/kidora.git" class="btn btn-outline-light">GitHub</a>
-            </div>
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Kidora</h5>
-            <p class="card-text">An engaging web app where students can type a topic and get curated educational videos. Built using Django and tailored for kid-friendly learning.</p>
-        </div>
-    </div>
-</div>
-
     </section>
     <!-- Experience -->
-      <section id="experience" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">Experience</h2>
-            <div class="row">
-             <div class="col-lg-6 mb-4">
-    <div class="card p-4 fade-in">
-        <div class="d-flex align-items-center mb-3">
-            <i class="fas fa-briefcase text-primary fa-2x me-3"></i>
-            <div>
-                <h5 class="mb-1">Data Science Intern</h5>
-                <h6 class="text-muted mb-0">SkillCraft • 1-Month Internship</h6>
+      <!-- ...existing code... -->
+<section id="experience" class="section">
+    <div class="container">
+        <h2 class="section-title fade-in">Experience</h2>
+        <div class="row">
+            <div class="col-lg-8 mx-auto mb-4">
+                <div class="card p-4 fade-in">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-briefcase text-primary fa-2x me-3"></i>
+                        <div>
+                            <h5 class="mb-1">Data Science Intern</h5>
+                            <h6 class="text-muted mb-0">SkillCraft • 1-Month Internship</h6>
+                        </div>
+                    </div>
+                    <p>Completed a one-month internship focused on data analysis, visualization, and machine learning. Worked with real-world datasets using Python, performed EDA, created visualizations, and applied basic machine learning models using Scikit-learn.</p>
+                    <div class="mt-3">
+                        <span class="badge bg-primary me-2">Python</span>
+                        <span class="badge bg-primary me-2">Pandas</span>
+                        <span class="badge bg-primary me-2">NumPy</span>
+                        <span class="badge bg-primary me-2">Matplotlib</span>
+                        <span class="badge bg-primary me-2">Seaborn</span>
+                        <span class="badge bg-primary me-2">Scikit-learn</span>
+                        <span class="badge bg-primary me-2">Data Analysis</span>
+                    </div>
+                </div>
             </div>
-        </div>
-        <p>Completed a one-month internship focused on data analysis, visualization, and machine learning. Worked with real-world datasets using Python, performed EDA, created visualizations, and applied basic machine learning models using Scikit-learn.</p>
-        <div class="mt-3">
-            <span class="badge bg-primary me-2">Python</span>
-            <span class="badge bg-primary me-2">Pandas</span>
-            <span class="badge bg-primary me-2">NumPy</span>
-            <span class="badge bg-primary me-2">Matplotlib</span>
-            <span class="badge bg-primary me-2">Seaborn</span>
-            <span class="badge bg-primary me-2">Scikit-learn</span>
-            <span class="badge bg-primary me-2">Data Analysis</span>
         </div>
     </div>
-</div>
-
-               <div class="col-lg-6 mb-4">
-    <div class="card p-4 fade-in">
-        <div class="d-flex align-items-center mb-3">
-            <i class="fas fa-hand-holding-water text-primary fa-2x me-3"></i>
-            <div>
-                <h5 class="mb-1">Volunteer - Soil & Water Conservation</h5>
-                <h6 class="text-muted mb-0">Nav Bharat Jagriti Kendra (NBJK) • 2-Month Volunteering</h6>
+</section>
+<!-- ...existing code... -->
+    <!-- ...existing code... -->
+<section id="social-skills" class="section">
+    <div class="container">
+        <h2 class="section-title fade-in">Social Skills</h2>
+        <div class="row">
+            <div class="col-lg-8 mx-auto mb-4">
+                <div class="card p-4 fade-in">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-hand-holding-water text-success fa-2x me-3"></i>
+                        <div>
+                            <h5 class="mb-1">Volunteer - Soil & Water Conservation</h5>
+                            <h6 class="text-muted mb-0">Nav Bharat Jagriti Kendra (NBJK) • 2-Month Volunteering</h6>
+                        </div>
+                    </div>
+                    <p>Volunteered for two months on projects focused on environmental sustainability. Contributed to soil and water conservation efforts through on-field work, awareness initiatives, and support in implementing eco-friendly practices in rural communities.</p>
+                    <div class="mt-3">
+                        <span class="badge bg-success me-2">Soil Conservation</span>
+                        <span class="badge bg-success me-2">Water Management</span>
+                        <span class="badge bg-success me-2">Community Engagement</span>
+                        <span class="badge bg-success me-2">Environmental Awareness</span>
+                    </div>
+                </div>
             </div>
-        </div>
-        <p>Volunteered for two months on projects focused on environmental sustainability. Contributed to soil and water conservation efforts through on-field work, awareness initiatives, and support in implementing eco-friendly practices in rural communities.</p>
-        <div class="mt-3">
-            <span class="badge bg-success me-2">Soil Conservation</span>
-            <span class="badge bg-success me-2">Water Management</span>
-            <span class="badge bg-success me-2">Community Engagement</span>
-            <span class="badge bg-success me-2">Environmental Awareness</span>
         </div>
     </div>
-</div>
-
-            </div>
-        </div>
-    </section>
+</section>
+<!-- ...existing code... -->
 
 <!-- Certificates -->
     <section id="accomplishments" class="section">
