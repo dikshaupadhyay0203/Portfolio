@@ -223,22 +223,26 @@
         }
 
         .profile-img {
-            width: 320px;
-            height: 320px;
+            width: clamp(240px, 30vw, 290px);
+            height: clamp(240px, 30vw, 290px);
             border-radius: 50%;
             border: 6px solid rgba(102, 126, 234, 0.4);
+            object-fit: cover;
+            object-position: center 12%;
+            display: block;
+            margin: 0 auto;
             box-shadow: 
                 0 25px 50px rgba(102, 126, 234, 0.3),
                 inset 0 0 0 3px rgba(255, 255, 255, 0.1);
             animation: zoomIn 1s ease-out 0.9s both;
             transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
-            filter: brightness(1.1) contrast(1.1);
+            filter: brightness(1.05) contrast(1.06);
         }
 
         .profile-img:hover {
-            transform: scale(1.08) rotate(3deg);
+            transform: scale(1.03);
             box-shadow: 
-                0 35px 70px rgba(102, 126, 234, 0.4),
+                0 30px 60px rgba(102, 126, 234, 0.35),
                 inset 0 0 0 3px rgba(255, 255, 255, 0.2);
         }
 
@@ -254,8 +258,8 @@
         }
 
         @keyframes zoomIn {
-            from { opacity: 0; transform: scale(0.3) rotate(-10deg); }
-            to { opacity: 1; transform: scale(1) rotate(0deg); }
+            from { opacity: 0; transform: scale(0.92); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         @keyframes fadeInUp {
@@ -759,7 +763,7 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 3rem; }
             .section-title { font-size: 2.5rem; }
-            .profile-img { width: 250px; height: 250px; }
+            .profile-img { width: 220px; height: 220px; }
             .timeline::before { left: 30px; }
             .timeline-item { 
                 width: 100%; 
@@ -1137,7 +1141,7 @@ Passionate about building scalable web applications and intelligent systems usin
             </div>
 
             <div class="col-lg-6 text-center">
-                <img src="mypicc.jpeg" alt="Diksha" class="profile-img">
+                <img src="formals.png" alt="Diksha" class="profile-img">
             </div>
         </div>
     </div>
